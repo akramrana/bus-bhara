@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, Title } from '@angular/platform-browser';
 import { Ng2SmartTableComponent, ServerDataSource } from 'ng2-smart-table';
 import { ApiService } from 'src/app/services/api.service';
 import { environment } from 'src/environments/environment';
@@ -62,7 +62,10 @@ export class BusRoutesComponent implements OnInit {
   constructor(
     private domSanitizer: DomSanitizer,
     private apiService: ApiService,
-  ) { }
+    private titleService: Title,
+  ) { 
+    this.titleService.setTitle('Bus Route');
+  }
 
   ngOnInit(): void {
     this.source = this.getData();
