@@ -1,0 +1,119 @@
+<h2>
+    ভাড়া জানুন
+</h2>
+<p>Calculate Rent</p>
+
+<div class="card-container">
+    <form [formGroup]="formGroup" (ngSubmit)="search()">
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="form-group required">
+                    <label class="control-label">Departure(প্রস্থান)</label>
+                    <ng-select class="form-control custom" bindLabel="name" bindValue="id" formControlName="departure"
+                        (change)="getDestination()" (search)="searchStops($event)">
+                        <ng-option [value]="item.id" *ngFor="let item of departureStops">
+                            {{item.name}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="form-group required">
+                    <label class="control-label">Destination(গন্তব্য)</label>
+                    <ng-select class="form-control custom" bindLabel="name" bindValue="id"
+                        formControlName="destination">
+                        <ng-option [value]="item.id" *ngFor="let item of destinationStops">
+                            {{item.name}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">
+                Search
+            </button>
+        </div>
+    </form>
+</div>
+<div *ngIf="fareCalcResults">
+    <div class="container box" *ngFor="let fareCalcResult of fareCalcResults">
+        <div class="row">
+            <div class="col-12">
+                <h3>Fare Details(ভাড়ার বিবরণ)</h3>
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                Departure(প্রস্থান)
+            </div>
+            <div class="col-6">
+                {{fareCalcResult?.departure}}
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-6">
+                Destination(গন্তব্য)
+            </div>
+            <div class="col-6">
+                {{fareCalcResult?.destination}}
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-6">
+                Distance(দূরত্ব)
+            </div>
+            <div class="col-6">
+                {{fareCalcResult?.distance_bn}} KM ({{fareCalcResult?.distance_en}} কি.মি)
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-6">
+                Fare(ভাড়া)
+            </div>
+            <div class="col-6">
+                <p>{{fareCalcResult?.total_bn}} টাকা ({{fareCalcResult?.total_en}} BDT)</p>
+                <p class="text-danger">
+                    বিঃদ্রঃসর্বনিম্ন ভাড়া ১০ টাকা । এ ভাড়া গ্যাস, অকটেন, পেট্রোল চালিত গাড়ির জন্য প্রযোজ্য হবে না। 
+                </p>
+                <p class="text-danger">
+                    Note: The minimum rent is 10 Taka. This fare will not be applicable for gas, octane, petrol powered vehicles.
+                </p>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-6">
+                Route(রুট)
+            </div>
+            <div class="col-6">
+                {{fareCalcResult?.route}}
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-6">
+                Route Number(রুট নাম্বার)
+            </div>
+            <div class="col-6">
+                {{fareCalcResult?.route_code_bn}} ({{fareCalcResult?.route_code_en}})
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-12">
+                <a target="_new" href="{{fareCalcResult?.image_url}}"><img src="{{fareCalcResult?.image_url}}"
+                        class="img-fluid" /></a>
+            </div>
+            <div class="col-12 text-center">
+                <a target="_new" href="{{fareCalcResult?.image_url}}">View Full Image</a>
+            </div>
+        </div>
+    </div>
+</div>
