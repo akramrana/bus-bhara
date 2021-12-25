@@ -15,7 +15,7 @@ export class CalculateRentComponent implements OnInit {
   formGroup: FormGroup;
   departureStops: any[];
   destinationStops: any[];
-  fareCalcResults:any[];
+  fareCalcResults: any[];
 
   constructor(
     private apiService: ApiService,
@@ -44,7 +44,11 @@ export class CalculateRentComponent implements OnInit {
           .pipe(first())
           .subscribe(response => {
             //console.log(response);
-            this.fareCalcResults = response;
+            if (Object.keys(response).length) {
+              this.fareCalcResults = response;
+            }else{
+              alert('Sorry no result found. Please try another combination');
+            }
           });
       } catch (e) {
         console.log(e);
@@ -60,9 +64,11 @@ export class CalculateRentComponent implements OnInit {
     let departure = this.formGroup.get('departure').value;
     this.apiService.searchDestinationStops({ keyword: departure })
       .subscribe(response => {
-        const result = response.body;
         //console.log(result);
-        this.destinationStops = result.destinations;
+        if (response) {
+          const result = response.body;
+          this.destinationStops = result.destinations;
+        }
       });
   }
 
@@ -76,9 +82,11 @@ export class CalculateRentComponent implements OnInit {
       this.destinationStops = [];
       this.apiService.searchBusStops({ keyword: searchValue })
         .subscribe(response => {
-          const result = response.body;
           //console.log(result);
-          this.departureStops = result.departures;
+          if (response) {
+            const result = response.body;
+            this.departureStops = result.departures;
+          }
         });
     }
   }
