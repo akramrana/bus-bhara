@@ -80,10 +80,11 @@
             <div class="col-6">
                 <p>{{fareCalcResult?.total_bn}} টাকা ({{fareCalcResult?.total_en}} BDT)</p>
                 <p class="text-danger">
-                    বিঃদ্রঃসর্বনিম্ন ভাড়া ১০ টাকা । এ ভাড়া গ্যাস, অকটেন, পেট্রোল চালিত গাড়ির জন্য প্রযোজ্য হবে না। 
+                    বিঃদ্রঃসর্বনিম্ন ভাড়া ১০ টাকা । এ ভাড়া গ্যাস, অকটেন, পেট্রোল চালিত গাড়ির জন্য প্রযোজ্য হবে না।
                 </p>
                 <p class="text-danger">
-                    Note: The minimum rent is 10 Taka. This fare will not be applicable for gas, octane, petrol powered vehicles.
+                    Note: The minimum rent is 10 Taka. This fare will not be applicable for gas, octane, petrol powered
+                    vehicles.
                 </p>
             </div>
         </div>
@@ -113,6 +114,20 @@
             </div>
             <div class="col-12 text-center">
                 <a target="_new" href="{{fareCalcResult?.image_url}}">View Full Image</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="possibleBusList">
+    <div class="row">
+        <div class="col-12">
+            <h3>Possible Local Buses<br/>(সম্ভাব্য লোকাল বাস সমূহ)</h3>
+        </div>
+    </div>
+    <div class="container box" *ngFor="let pb of possibleBusList">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-left">{{pb}}</p>
             </div>
         </div>
     </div>

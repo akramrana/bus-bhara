@@ -4,6 +4,7 @@ import { BusRoutesComponent } from './bus-routes/bus-routes.component';
 import { CalculateRentComponent } from './calculate-rent/calculate-rent.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { HomeIndexComponent } from './home-index/home-index.component';
+import { LocalBusListComponent } from './local-bus-list/local-bus-list.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'bus-routes',
     component: BusRoutesComponent,
+  },
+  {
+    path: 'local-bus-list',
+    component: LocalBusListComponent,
   },
 ];
 

@@ -16,6 +16,7 @@ export class CalculateRentComponent implements OnInit {
   departureStops: any[];
   destinationStops: any[];
   fareCalcResults: any[];
+  possibleBusList: any[];
 
   constructor(
     private apiService: ApiService,
@@ -44,8 +45,11 @@ export class CalculateRentComponent implements OnInit {
           .pipe(first())
           .subscribe(response => {
             //console.log(response);
-            if (Object.keys(response).length) {
-              this.fareCalcResults = response;
+            if (Object.keys(response.busList).length) {
+              this.possibleBusList = response.busList;
+            }
+            if (Object.keys(response.fareDetails).length) {
+              this.fareCalcResults = response.fareDetails;
             }else{
               alert('Sorry no result found. Please try another combination');
             }

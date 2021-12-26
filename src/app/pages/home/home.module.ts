@@ -9,10 +9,11 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { LocalBusListComponent } from './local-bus-list/local-bus-list.component';
 
 
 @NgModule({
-  declarations: [HomeIndexComponent, CalculateRentComponent, BusRoutesComponent, FeedbackComponent],
+  declarations: [HomeIndexComponent, CalculateRentComponent, BusRoutesComponent, FeedbackComponent, LocalBusListComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
