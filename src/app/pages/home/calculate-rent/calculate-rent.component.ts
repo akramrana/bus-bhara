@@ -45,13 +45,15 @@ export class CalculateRentComponent implements OnInit {
           .pipe(first())
           .subscribe(response => {
             //console.log(response);
-            if (Object.keys(response.busList).length) {
-              this.possibleBusList = response.busList;
-            }
-            if (Object.keys(response.fareDetails).length) {
-              this.fareCalcResults = response.fareDetails;
-            }else{
-              alert('Sorry no result found. Please try another combination');
+            if (response) {
+              if (response.busList && response.busList.length) {
+                this.possibleBusList = response.busList;
+              }
+              if (response.fareDetails && response.fareDetails.length) {
+                this.fareCalcResults = response.fareDetails;
+              } else {
+                alert('Sorry no result found. Please try another combination');
+              }
             }
           });
       } catch (e) {
