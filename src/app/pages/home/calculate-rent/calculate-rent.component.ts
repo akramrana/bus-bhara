@@ -45,6 +45,8 @@ export class CalculateRentComponent implements OnInit {
           .pipe(first())
           .subscribe(response => {
             //console.log(response);
+            this.possibleBusList = [];
+            this.fareCalcResults = [];
             if (response) {
               if (response.busList && response.busList.length) {
                 this.possibleBusList = response.busList;
