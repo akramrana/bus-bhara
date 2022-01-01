@@ -10,16 +10,21 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { LocalBusListComponent } from './local-bus-list/local-bus-list.component';
+import { AddRouteRequestComponent } from './add-route-request/add-route-request.component';
+import { RecaptchaFormsModule, RecaptchaModule, RecaptchaV3Module } from 'ng-recaptcha';
 
 
 @NgModule({
-  declarations: [HomeIndexComponent, CalculateRentComponent, BusRoutesComponent, FeedbackComponent, LocalBusListComponent],
+  declarations: [HomeIndexComponent, CalculateRentComponent, BusRoutesComponent, FeedbackComponent, LocalBusListComponent, AddRouteRequestComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
     NgSelectModule,
     ReactiveFormsModule,
     Ng2SmartTableModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
+    RecaptchaV3Module
   ]
 })
 export class HomeModule { }

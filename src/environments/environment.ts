@@ -5,6 +5,9 @@ let url = 'http://localhost/bus-bhara/';
 export const environment = {
   production: false,
   apiurl: url,
+  IV:"",
+  ENC_KEY:"",
+  siteKey: '',
 };
 
 /*

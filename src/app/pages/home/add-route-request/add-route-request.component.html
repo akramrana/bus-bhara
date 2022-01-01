@@ -1,0 +1,86 @@
+<h2>
+    রুট যুক্ত করুন
+</h2>
+<p>Add Route Request</p>
+
+<div class="card-container" style="min-width: 320px;">
+    <form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="form-group required">
+                    <label class="control-label">Route(রুট)</label>
+                    <input type="text" class="form-control text-input" name="route" formControlName="route" placeholder="">
+                    <small class="text-danger" *ngIf="formGroup.controls['route'].hasError('required')">
+                        Route is required!
+                      </small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="form-group required">
+                    <label class="control-label">Departure(প্রস্থান)</label>
+                    <input type="text" class="form-control text-input" name="fromName" formControlName="fromName" placeholder="">
+                    <small class="text-danger" *ngIf="formGroup.controls['fromName'].hasError('required')">
+                        Departure is required!
+                      </small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="form-group required">
+                    <label class="control-label">Destination(গন্তব্য)</label>
+                    <input type="text" class="form-control text-input" name="toName" formControlName="toName" placeholder="">
+                    <small class="text-danger" *ngIf="formGroup.controls['toName'].hasError('required')">
+                        Destination is required!
+                      </small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="form-group required">
+                    <label class="control-label">Distance(দূরত্ব)</label>
+                    <input type="number" class="form-control text-input" name="distance" formControlName="distance" placeholder="">
+                    <small class="text-danger" *ngIf="formGroup.controls['distance'].hasError('required')">
+                        Distance is required!
+                      </small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="form-group required">
+                    <label class="control-label">Fare(ভাড়া)</label>
+                    <input type="number" class="form-control text-input" name="fare" formControlName="fare" placeholder="">
+                    <small class="text-danger" *ngIf="formGroup.controls['fare'].hasError('required')">
+                        Fare is required!
+                      </small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="form-group required">
+                    <label class="control-label">Contact Info(যোগাযোগের তথ্য)</label>
+                    <textarea class="form-control text-input" name="contactInfo" formControlName="contactInfo"></textarea>
+                    <small class="text-danger" *ngIf="formGroup.controls['contactInfo'].hasError('required')">
+                        Contact Info is required!
+                      </small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <re-captcha formControlName="recaptchaReactive" (resolved)="addTokenLog('Reactive form mode resolved', $event)">
+                </re-captcha>
+            </div>
+          </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>

@@ -5,6 +5,7 @@ import { CalculateRentComponent } from './calculate-rent/calculate-rent.componen
 import { FeedbackComponent } from './feedback/feedback.component';
 import { HomeIndexComponent } from './home-index/home-index.component';
 import { LocalBusListComponent } from './local-bus-list/local-bus-list.component';
+import { AddRouteRequestComponent } from './add-route-request/add-route-request.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'local-bus-list',
     component: LocalBusListComponent,
+  },
+  {
+    path: 'add-route-request',
+    component: AddRouteRequestComponent,
   },
 ];
 

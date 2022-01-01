@@ -44,6 +44,13 @@ export class ApiService {
       }));
   }
 
+  addRouteRequest(postParams?: any) {
+    return this.configService.postRequest(this.baseRoute + '/add-route-request.php', {}, postParams)
+      .pipe(map(response => {
+        return response;
+      }));
+  }
+
   getGridData(listUrl, pageSize, pageNumber) {
     return new ServerDataSource(this.http,
       {
